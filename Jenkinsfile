@@ -134,7 +134,7 @@ pipeline {
 		// Si tout s'est bien passé
 		success {
 			slackSend(
-				channel: '#test-jenkins',
+				channel: '#tous-devops',
 				color: '#36a64f', // Vert
 				message: "🎉 SUCCESS — Build #${BUILD_NUMBER} déployé avec succès ! 🚀"
 			)
@@ -143,7 +143,7 @@ pipeline {
 		// Si une étape a échoué
 		failure {
 			slackSend(
-				channel: '#test-jenkins',
+				channel: '#tous-devops',
 				color: '#ff0000', // Rouge
 				message: "❌ FAILURE — Le pipeline #${BUILD_NUMBER} a échoué ! ⚠️"
 			)
