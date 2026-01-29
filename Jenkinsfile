@@ -70,11 +70,13 @@ pipeline {
 		stage('build image docker') {
 			steps {
 				// Construit l'image en utilisant le Dockerfile présent à la racine (.)
+				script {
 				sh "docker build -t ${DOCKER_IMAGE} ."
 
 				// Se connecte au Docker Hub (ID credentials: docker-cred) et pousse l'image
 				docker.withRegistry('https://index.docker.io/v1/', "docker-cred"){
 					docker.image("${DOCKER_IMAGE}").push()
+					}
 				}
 			}
 		}
