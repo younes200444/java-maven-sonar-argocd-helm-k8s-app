@@ -1,25 +1,98 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
     <link data-th-href="@{/css/main.css?{id}(id=${timestamp})}" rel="stylesheet">
-    <title>CI/CD Master Class By donald programmeur - Spring Boot</title>
+    <title>DevOps Master Class - Younes</title>
+    <style>
+        body { padding-top: 5rem; }
+        .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
+        .card { height: 100%; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+    </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">CICD complet avec Jenkins, Kubernetes, Helm, ArgoCD, SonarQube</div></a>
+    <a class="navbar-brand" href="#">🚀 Ultimate CI/CD Pipeline</a>
 </nav>
 
 <main role="main" class="container">
-    <div class="starter-template">
-        <h1 th:text="${title}">titre par defaut</h1>
-        <p th:text="${msg}">message par defaut</p>
+
+    <div class="jumbotron text-center bg-light">
+        <h1 class="display-4" th:text="${title}">Titre de l'application</h1>
+        <p class="lead" th:text="${msg}">Message dynamique (ex: version de l'app)</p>
+        <hr class="my-4">
+        <p>Cette application est déployée automatiquement via un pipeline GitOps complet.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Voir le code GitHub</a>
     </div>
+
+    <div class="row text-center">
+        <div class="col-md-12 mb-4">
+            <h2>🏗️ Architecture du Projet</h2>
+            <p class="text-muted">Voici les outils DevOps orchestrés pour déployer cette page :</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-white">1. Intégration Continue (CI)</div>
+                <div class="card-body">
+                    <div class="feature-icon">☕ + 🔧</div>
+                    <h5 class="card-title">Jenkins & Maven</h5>
+                    <p class="card-text">
+                        Le code est récupéré depuis <strong>GitHub</strong>.
+                        <strong>Maven</strong> compile l'application Java et exécute les tests unitaires automatiquement.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card border-info">
+                <div class="card-header bg-info text-white">2. Qualité & Docker</div>
+                <div class="card-body">
+                    <div class="feature-icon">🐳 + 🔍</div>
+                    <h5 class="card-title">SonarQube & Docker Hub</h5>
+                    <p class="card-text">
+                        <strong>SonarQube</strong> analyse le code pour détecter les bugs.
+                        Une image <strong>Docker</strong> est construite et poussée sur le Docker Hub avec un tag unique.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card border-success">
+                <div class="card-header bg-success text-white">3. Déploiement Continu (CD)</div>
+                <div class="card-body">
+                    <div class="feature-icon">🐙 + ☸️</div>
+                    <h5 class="card-title">ArgoCD & Kubernetes</h5>
+                    <p class="card-text">
+                        <strong>ArgoCD</strong> détecte le changement de version dans le manifeste Git et synchronise le cluster.
+                        L'app tourne sur <strong>Kubernetes</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="alert alert-secondary text-center" role="alert">
+                <strong>Stack Technique :</strong> Java 17 • Spring Boot 3 • Thymeleaf • Bootstrap 4
+            </div>
+        </div>
+    </div>
+
 </main>
 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script data-th-src="@{/js/main.js}"></script>
 </body>
-
 </html>
