@@ -15,4 +15,4 @@ RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
 
 # 6. Démarrage
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "--add-opens", "java.base/java.lang=ALL-UNNAMED", "--add-opens", "java.base/java.io=ALL-UNNAMED", "--add-opens", "java.base/java.util=ALL-UNNAMED", "--add-opens", "java.base/java.util.concurrent=ALL-UNNAMED", "-jar", "app.jar"]
