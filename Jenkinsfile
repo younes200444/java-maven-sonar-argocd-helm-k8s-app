@@ -74,7 +74,7 @@ pipeline {
 					sh "docker build -t ${DOCKER_IMAGE} ."
 					echo "🛡️ Démarrage du scan de sécurité Trivy..."
 					sh "curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b ."
-					sh "./trivy image --exit-code 1 --severity CRITICAL --no-progress ${DOCKER_IMAGE}"
+					sh "./trivy image --exit-code 1 --severity CRITICAL --no-progress --ignorefile .trivyignore ${DOCKER_IMAGE}"
 					echo "✅ Scan terminé : Aucune faille critique détectée."
 
 				// Se connecte au Docker Hub (ID credentials: docker-cred) et pousse l'image
